@@ -36,7 +36,7 @@
        </div>
 
 
-       
+      
        <section class="section">
          <router-view/>
        </section>
@@ -46,6 +46,8 @@
   </div>
 </template>
 <script>
+
+  
 
 
 export default{
