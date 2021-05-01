@@ -49,6 +49,7 @@ export default {
   },
   mounted() {
     this.getLatestProducts() 
+    document.title= 'Home | EcomDj'
   },
   methods: {
      async getLatestProducts() {
