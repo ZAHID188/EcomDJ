@@ -34,6 +34,9 @@
        v-bind:class="{'is-loading':$store.state.isLoading}">
        <div class="lds-dual-ring"></div>
        </div>
+
+
+       
        <section class="section">
          <router-view/>
        </section>
