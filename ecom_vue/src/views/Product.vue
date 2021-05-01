@@ -21,7 +21,7 @@
                    <div class="control">
                        <a class="button is-dark" @click="addToCart"> Add to cart</a>
 
-                       <div> another attempt to check github problems</div>
+                 
 
                    </div>
                </div>
