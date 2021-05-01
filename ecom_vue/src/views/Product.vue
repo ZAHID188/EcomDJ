@@ -1,7 +1,7 @@
 <template>
 
 <div class="page-product">
-     <div class="column is-multiline">
+     <div class="columns is-multiline">
          <div class="column is-9">
                <figure class="image mb-10">
                    <img v-bind:src="product.get_image">
