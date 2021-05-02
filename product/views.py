@@ -2,8 +2,8 @@ from django.shortcuts import render
 from django.http import Http404
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .models import Product
-from .serializers import ProductSerializer
+from .models import Product,Catagory
+from .serializers import ProductSerializer,CategorySerializer
 
 # Create your views here.
 
@@ -29,7 +29,7 @@ class ProductDetail(APIView):
 class CategoryDetail(APIView):
     def get_object(self,category_slug):
         try:
-            return Category.objects.get(slug=category_slug)
+            return Catagory.objects.get(slug=category_slug)
         except Product.DoesNotExist:
             raise Http404
     
