@@ -37,6 +37,16 @@ export default {
     mounted(){
         this.getCategory()
     },
+    watch:{
+        $route(to,from)
+        {
+            if(to.name === 'Category')
+            {
+                this.getCategory()
+            }
+        }
+    },
+
     methods:
     {
         async getCategory(){
