@@ -2,9 +2,12 @@
    <tr>
        <td><router-link :to="item.product.get_absolute_url">{{item.product.name}}</router-link></td>
        <td>{{item.product.price}}Tk. </td>
-       <td>{{item.quantity}}</td>
+       <td>{{item.quantity}}
+           <a class="is-size-2" @click="decrementQuantity(item)">-</a>
+           <a class="is-size-2"  @click="incrementQuantity(item)">+</a> 
+       </td>
        <td>{{getItemTotal(item).toFixed(2)}}</td>
-       <td><button class="delete"></button></td>
+       <td><button class="delete" @click="removeFromCart(item)"></button></td>
        
    </tr>
     
@@ -24,6 +27,27 @@ export default {
     methods:{
         getItemTotal(item){
             return item.quantity * item.product.price
+        },
+        decrementQuantity(item){
+             item.quantity -= 1
+             if(item.quantity === 0){
+                 this.$emit('removeFromCart',item)
+             }
+            this.updateCart()
+
+        },
+        incrementQuantity(item){
+            item.quantity+=1
+            this.updateCart()
+
+        },
+        updateCart(){
+            localStorage.setItem('cart',JSON.stringify(this.$store.state.cart))
+        },
+        removeFromCart(item){
+            this.$emit('removeFromCart',item)
+            this.updateCart()
+
         },
     }
 }
