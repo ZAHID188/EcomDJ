@@ -40,6 +40,8 @@ class CategoryDetail(APIView):
         return Response(serializer.data)
 
 @api_view(['POST'])
+
+
 def search(request):
     query=request.data.get('query','')
 
