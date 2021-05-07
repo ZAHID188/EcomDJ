@@ -5,12 +5,15 @@ import Category from '../views/Category.vue'
 import Search from '../views/Search.vue'
 import Cart from '../views/Cart.vue'
 
+
 const routes = [
   {
     path: '/',
     name: 'Home',
     component: Home
   },
+  
+
   {
     path: '/about',
     name: 'About',
@@ -42,7 +45,8 @@ const routes = [
     name: 'Category',
     component: Category
 
-  }
+  },
+ 
 
 
 ]
