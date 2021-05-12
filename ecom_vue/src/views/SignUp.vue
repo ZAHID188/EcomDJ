@@ -76,6 +76,36 @@ export default {
             }
 
             if(!this.errors.length){
+                const formData={
+                    username:this.username,
+                    password:this.password
+                }
+                axios
+                .post("/api/v1/users/",formData)
+                .then(response =>{
+                    toast({
+                        message:'Account created,please Log in!',
+                        type:'is-success',
+                        dismissible:true,
+                        pauseOnHover:true,
+                        duration:2000,
+                        position:'bottom-right'
+                    })
+                    this.$router.push('/log-in')
+                })
+                .catch(error =>{
+                    if(error.response){
+                        for(const property in error.response.data){
+                            this.errors.push(`${property}:${error.response.data[property]}`)
+                        }
+                        console.log(JSON.stringify(error.response.data))
+                    }
+                    else if(error.message){
+                        this.errors.push('Something went wrong.Please try again')
+                        console.log(JSON.stringify(error))
+                    }
+                })
+
                 
             }
 
