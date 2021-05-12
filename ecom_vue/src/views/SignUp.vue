@@ -67,6 +67,18 @@ export default {
                 this.errors.push('The username is missing')
             }
 
+            if(this.password === ''){
+                this.errors.push('The Password is missing')
+            }
+
+            if(this.password !== this.password2){
+                this.errors.push('The Password doesn\'t match')
+            }
+
+            if(!this.errors.length){
+                
+            }
+
         }
     }
 }
