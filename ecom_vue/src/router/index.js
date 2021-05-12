@@ -36,11 +36,13 @@ const routes = [
   },
 
   {
+    //    /winter/hoodie
     path: '/:category_slug/:product_slug/',
     name: 'Product',
     component: Product
   },
   {
+    //    /summer
     path: '/:category_slug',
     name: 'Category',
     component: Category
