@@ -39,7 +39,7 @@
           <router-link to="/winter" class="navbar-item">Winter </router-link>
           <div class="navbar-item">
             <div class="button">
-          <router-link to="/login" class="button is-light">Login </router-link>
+          <router-link to="/log-in" class="button is-light">Login </router-link>
             </div>
           <div>
           <router-link to="/cart" class="button is-success">
