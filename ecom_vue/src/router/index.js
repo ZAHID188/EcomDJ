@@ -9,6 +9,8 @@ import Cart from '../views/Cart.vue'
 import SignUp from '../views/SignUp.vue'
 import LogIn from '../views/LogIn.vue'
 import MyAccount from '../views/MyAccount.vue'
+import Checkout from '../views/Checkout.vue'
+
 
 
 const routes = [
@@ -38,6 +40,8 @@ const routes = [
     name: 'LogIn',
     component: LogIn
   },
+ 
+
 
   {
     path: '/my-account',
@@ -48,6 +52,7 @@ const routes = [
       requireLogin:true
     }
   },
+
   
   {
     path: '/search',
@@ -60,7 +65,16 @@ const routes = [
     name: 'Cart',
     component: Cart
   },
+//for checkout we use this because we must need to have login function in checkout
+{
+  path: '/cart/checkout',
+  name: 'Checkout',
+  component: Checkout,   
 
+  meta:{
+    requireLogin:true
+  }
+},
   {
     //    /winter/hoodie
     path: '/:category_slug/:product_slug/',

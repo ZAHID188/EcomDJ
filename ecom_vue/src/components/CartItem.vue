@@ -1,21 +1,23 @@
 <template>
   <tr>
     <td>
-      <router-link :to="item.product.get_absolute_url">{{
-        item.product.name
-      }}</router-link>
+
+       <!--MAJOR BUG , I WAS STUCK WITH THIS LINE FOR 2 DAYS-->
+      <router-link to="item.product.get_absolute_url">{{ item.product.name}}</router-link>
+      <!--<router-link:to = "item.product.get_absolute_url">{{item.product.name}}</router-link> -->
     </td>
-    <td>{{ item.product.price }} Tk.</td>
+    <td>{{ item.product.price }} Tk</td>
     <td>
       {{ item.quantity }}
-      <a class="is-size-2" @click="decrementQuantity(item)">&nbsp-</a>
-      <a class="is-size-2" @click="incrementQuantity(item)">&nbsp+</a>
+      <a class="is-size-2" @click="decrementQuantity(item)"> -</a>
+      <a class="is-size-2" @click="incrementQuantity(item)">+</a>
     </td>
     <td>{{ getItemTotal(item).toFixed(2) }} Tk</td>
     <td><button class="delete" @click="removeFromCart(item)"></button></td>
   </tr>
 </template>
 <script>
+import axios from 'axios'
 export default {
   name: "CartItem",
   props: {

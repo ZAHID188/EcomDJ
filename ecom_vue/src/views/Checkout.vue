@@ -18,8 +18,24 @@
                           </tr>
                       </thead>
                       <tbody>
+                          <tr v-for="item in cart.items"
+                          v-bind:key="item.product.id">
+                          <td>{{item.product.name}}</td>
+                          <td>{{item.product.price}}Tk</td>  
+                          <td> {{item.quantity}}</td>
+                          <td> {{ getItemTotal(item).toFixed(2)}}</td>
+                              
+                          </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="2">Total</td>
+                                <td>{{cartTotalLength}} </td>
+                                <td> {{ cartTotalPrice.toFixed(2)}}</td>
+                            </tr>
+                        </tfoot>
+
                           
-                      </tbody>
                   </table>
 
                   <p v-else>You Don't have any products in your cart..</p> 
@@ -46,7 +62,7 @@ export default {
             email:'',
             phone:'',
             address:'',
-            zipcode:'',
+            zipcode:'', 
             place:'',
             errors:[],
         }
@@ -58,8 +74,8 @@ export default {
     methods:{
         getItemTotal(item){
             return item.quantity * item.product.price
-        }
-
+        },
+  
     },
    computed:{
         cartTotalLength(){

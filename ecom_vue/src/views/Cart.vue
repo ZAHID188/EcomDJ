@@ -1,9 +1,6 @@
 <template>
 
-<div class="home">
-
-    <section class="hero is-medium is-dark mb-6">
-      <div class="hero-body has-text-centered">
+    
     <div class="page-cart">
 
 
@@ -13,13 +10,14 @@
            </div>
               <div class="column is-12 box">
 
-                  <table class="table is-fullwidth" v-if="cartTotalLength">
+                  <table class="table is-fullwidth" v-if="cartTotalLength" >
                       <thead>
                           <tr>
                               <th>Product</th>
                               <th>Price</th>
-                              <th>Quantity</th>
-                              <th>Total</th>
+                              <th>Quantity </th>
+                              <th>Total </th>
+                              <th></th>
                           </tr>
                       </thead>
                       <tbody>
@@ -44,9 +42,7 @@
 
         </div>
     </div>
-      </div>
-    </section>
-</div>
+      
 </template>
 
 <script>
@@ -77,8 +73,8 @@ export default {
     },
     computed:{
         cartTotalLength(){
-            return this.cart.items.reduce((acc,curVal)=>{
-                return acc + curVal.quantity
+            return this.cart.items.reduce((acc,curVal) => {
+                return acc += curVal.quantity
             },0)
         },
         cartTotalPrice(){
