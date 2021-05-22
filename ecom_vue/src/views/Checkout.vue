@@ -174,7 +174,30 @@ export default {
             {
                 this.errors.push('The place field is missing')
             }
+  
+             
+            if(!this.errors.length){  // meaning if there is no error we can go into this
+                this.$store.commit('setIsLoading',true)
+                // create stripe token based on the card
+                this.stripe.createToken(this.card).then(result=>{
+                    if(result.error){
+                        // if there is error we remove the loading
+                        this.$store.commit('setIsLoading',false)
+                        this.errors.push('something went wrong')
+                        console.log(result.error.message)
+                    }
+                    else{
+                        // if there is no error we will continue this function
+                        this.stripeTokenHandler(result.token)
+                    }
+
+                    
+                })
+            }
         },
+        async stripeTokenHandler(token){
+            const items=[]
+        }
   
     },
    computed:{

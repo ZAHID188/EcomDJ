@@ -17,11 +17,13 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+STRIPE_SECRET_KEY= 'sk_test_51Its92E4KCF5DGAEgAmJYjucBQQn2l2LsURGsOhKGt7QMwUKKUlnpdyCUviOgsfOw8xnKaN9giqp7iMAwyTVePja00EcRGGNi1'
 
 # Application definition
 
 INSTALLED_APPS = [
     'product',
+    'order',
     
     'django.contrib.admin',
     'django.contrib.auth',
