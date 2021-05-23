@@ -1,7 +1,7 @@
 import stripe
 from django.conf import settings
 from django.contrib.auth.models import User
-from django.http import Http404, response
+from django.http import Http404
 from django.shortcuts import render 
 
 from rest_framework import serializers, status,authentication,permissions
@@ -30,7 +30,7 @@ def checkout(request):
                 currency='USD',
                 description='Charge from EcomDj',
                 #source is a stripe token which  we get from the front-end so that everything is connected.
-                source= serializer.validated_data['stripe_token']
+                source= serializers.validated_data['stripe_token']
             ) 
             serializer.save(user=request.user,paid_amount=paid_amount)
             return Response(serializer.data, status=status.HTTP_201_CREATED)

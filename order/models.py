@@ -25,8 +25,8 @@ class Order(models.Model):
         
     
 class OrderItem(models.Model):
-        order=models.ForeignKey(Order,related_name='items',on_delete=models.CASCADE)#here is an error should be 'Order'=Order
-        # but if i use Order then it's having a name error
+        order=models.ForeignKey(Order,related_name='items',on_delete=models.CASCADE)
+        #i was making a class inside that class i need to delete space before the class i mean it's a new class.
    
         product = models.ForeignKey(Product,related_name='items',on_delete=models.CASCADE)
         price = models.DecimalField(max_digits=8,decimal_places=2)
