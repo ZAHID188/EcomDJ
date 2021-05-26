@@ -11,6 +11,8 @@
                   <table class="table is-fullwidth" v-if="cartTotalLength">
                       <thead>
                           <tr>
+                              <!-- REMEMBER THIS NEED TO HAVE AN INTERNET CONNECTION
+                              THERE IS AN ERROR IN THE CART AND CHECKOUT WITHOUT INTERNET-->
                               <th>Product</th>
                               <th>Price</th>
                               <th>Quantity</th>
@@ -195,7 +197,7 @@ export default {
                     if(result.error){
                         // if there is error we remove the loading
                         this.$store.commit('setIsLoading',false)
-                        this.errors.push('something went wrong')
+                        this.errors.push('something went wrong here in stripe')
                         console.log(result.error.message)
                     }
                     else{
@@ -253,8 +255,8 @@ export default {
     },
    computed:{
        cartTotalPrice(){
-            return this.cart.items.reduce((acc,curVal)=>{
-                return acc +=    curVal.product.price * curVal.quantity
+            return this.cart.items.reduce((acc,curVal) => {
+                return acc += curVal.product.price * curVal.quantity
             },0)
         },
         cartTotalLength(){
