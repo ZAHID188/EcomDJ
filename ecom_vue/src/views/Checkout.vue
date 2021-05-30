@@ -126,6 +126,7 @@ export default {
             cart:{
                 items:[]
             },
+            //id:'',
             stripe:{},
             card:{},
             first_name:'',
@@ -224,7 +225,7 @@ export default {
                 items.push(obj)
             }
                 const data={
-                 
+                   //'id':this.id,
                   'first_name': this.first_name,
                   'last_name': this.last_name,
                   'email': this.email,
@@ -232,11 +233,13 @@ export default {
                   'zipcode': this.zipcode,
                   'place': this.place,
                   'phone': this.phone,
+                  'stripe_token':token.id,
                   'items': items,
-                  'stripe_token':token.id
+                  
+                  
                 }
                  await axios
-                  .post('/api/v1/checkout/',data)
+                  .post('/api/v1/checkout/',data) // creating a order in the andmin manual orders
                   .then(response => {
                      
 
@@ -248,6 +251,7 @@ export default {
                   .catch(error => {
                       this.errors.push('Something Wrong, check the console')
                       console.log(error)
+                       //this.$router.push('/cart/success')
                   })
                   this.$store.commit('setIsLoading',false)
 
