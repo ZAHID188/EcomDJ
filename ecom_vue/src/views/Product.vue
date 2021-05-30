@@ -3,7 +3,7 @@
 <div class="page-product">
      <div class="column is-multiline">
          <div class="column is-9">
-               <figure class="image mb-6">
+               <figure class="image mb-10">
                    <img v-bind:src="product.get_image">
                </figure>
                <h1 class="title">{{product.name}} </h1>
@@ -13,7 +13,7 @@
          <div class="column is-3">
 
             <h2 class="subtitle">Information</h2>
-            <p> <strong>Price</strong>${{product.price}}</p>
+            <p> <strong>Price</strong>{{product.price}}tk</p>
                <div class="field has-addons mt-6">
                    <div class="control">
                        <input type="number" class="input" min="1" v-model="quantity">
