@@ -144,11 +144,11 @@ export default {
 
         if(this.cartTotalLength > 0){ //we check there is products in the cart
         //then we have new instance of stripe
-            this.stripe=Stripe('pk_test_51Its92E4KCF5DGAErz4PmqiZQLLrxsaNIRPZsySjZmeKVJONAUGfGhyF3S69ZwDHko8fNJMWWCKWJq3wGSs59KrM00exnO2ozi')
+            this.stripe= Stripe('pk_test_51Its92E4KCF5DGAErz4PmqiZQLLrxsaNIRPZsySjZmeKVJONAUGfGhyF3S69ZwDHko8fNJMWWCKWJq3wGSs59KrM00exnO2ozi')
             // new instance of element
             const elements=this.stripe.elements();
             //hide the postal code from the stupid form
-            this.card= elements.create('card',{ hidePostalCode:true })    
+            this.card= elements.create('card',{ hidePostalCode: true })    
             //then we mounted to the element-- look at the line 102
             this.card.mount('#card-element')
         }
@@ -158,7 +158,7 @@ export default {
         getItemTotal(item){
             return item.quantity * item.product.price
         },
-        submitForm(){
+        submitForm() {
             this.errors=[]
             if(this.first_name==='')
             {
@@ -225,27 +225,28 @@ export default {
             }
                 const data={
                  
-                  'first_name':this.first_name,
+                  'first_name': this.first_name,
                   'last_name': this.last_name,
-                  'email':this.email,
-                  'phone':this.phone,
-                  'address':this.address,
+                  'email': this.email,
+                  'address': this.address,
                   'zipcode': this.zipcode,
-                  'place':this.place,
-                  'items':items,
+                  'place': this.place,
+                  'phone': this.phone,
+                  'items': items,
                   'stripe_token':token.id
-
-                    }
-            await axios
+                }
+                 await axios
                   .post('/api/v1/checkout/',data)
-                  .then(response =>{
+                  .then(response => {
                      
+
+
                       this.$store.commit('clearCart')
                       this.$router.push('/cart/success')
 
                   })
                   .catch(error => {
-                      this.errors.push('Something Wrong')
+                      this.errors.push('Something Wrong, check the console')
                       console.log(error)
                   })
                   this.$store.commit('setIsLoading',false)

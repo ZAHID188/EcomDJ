@@ -41,9 +41,9 @@ export default createStore({
    setIsLoading(state,status){
      state.isLoading=status
    },
-   setToken(state,token){
+   setToken(state, token){
      state.token = token
-     state.isAuthenticated=true
+     state.isAuthenticated=  true
 
    },
    removeToken(state){
@@ -51,7 +51,7 @@ export default createStore({
     state.isAuthenticated=false
   },
   clearCart(state){
-    state.cart={items:[]} //clears the whole object then
+    state.cart={ items: [] } //clears the whole object then
     localStorage.setItem('cart',JSON.stringify(state.cart))// remove it from the local storage
   },
 

@@ -1,5 +1,6 @@
-from django.db import models
+
 from django.contrib.auth.models import User  #to connect this model to user
+from django.db import models  
 from product.models import Product # bring product here
 
 
@@ -12,9 +13,9 @@ class Order(models.Model):
     zipcode=models.CharField(max_length=100) 
     place=models.CharField(max_length=100)
     phone=models.CharField(max_length=100)
-    created_at= models.DateTimeField(auto_now_add=True)
-    paid_amount= models.DecimalField(max_digits=8,decimal_places=2,blank=True,null=True)
-    stripe_token=models.CharField(max_length=100)
+    created_at= models.DateTimeField(auto_now_add=True) #to knnow when the order was created
+    paid_amount= models.DecimalField(max_digits=8,decimal_places=2,blank=True,null=True) #paid amount it will get from the stripe 
+    stripe_token=models.CharField(max_length=100)# used to perform the purchase 
 
     class Meta:
         ordering=['-created_at',] #decending order 

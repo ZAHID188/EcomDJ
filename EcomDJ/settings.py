@@ -18,7 +18,8 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
-STRIPE_SECRET_KEY= 'sk_test_51Its92E4KCF5DGAEgAmJYjucBQQn2l2LsURGsOhKGt7QMwUKKUlnpdyCUviOgsfOw8xnKaN9giqp7iMAwyTVePja00EcRGGNi1'
+
+STRIPE_SECRET_KEY='sk_test_51Its92E4KCF5DGAEgAmJYjucBQQn2l2LsURGsOhKGt7QMwUKKUlnpdyCUviOgsfOw8xnKaN9giqp7iMAwyTVePja00EcRGGNi1'
 
 # Application definition
 
@@ -44,6 +45,7 @@ INSTALLED_APPS = [
 CORS_ALLOWED_ORIGINS=[
      "http://localhost:8080",
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -75,7 +77,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'EcomDJ.wsgi.application'
-
 
 
 
