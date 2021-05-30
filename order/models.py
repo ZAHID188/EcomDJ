@@ -18,7 +18,7 @@ class Order(models.Model):
     stripe_token=models.CharField(max_length=100)# used to perform the purchase 
 
     class Meta:
-        ordering=['-created_at',] #decending order 
+        ordering =['-created_at',] #decending order 
 
     def __str__(self):
         return self.first_name 

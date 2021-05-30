@@ -45,11 +45,6 @@ class OrderItemSerializer(serializers.ModelSerializer):
 
 
 
-
-
-
-
-
 class OrderSerializer(serializers.ModelSerializer):
     items=OrderItemSerializer(many=True)
     class Meta:
